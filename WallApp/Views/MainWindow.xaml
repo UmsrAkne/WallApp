@@ -11,6 +11,7 @@
     Height="{Binding Height}"
     d:DataContext="{d:DesignInstance viewModels1:MainWindowViewModel}"
     prism:ViewModelLocator.AutoWireViewModel="True"
+    Background="{StaticResource BgColorBrush}"
     Topmost="{Binding IsTopMost}"
     mc:Ignorable="d">
 
@@ -21,12 +22,15 @@
     <StackPanel>
         <StackPanel.Resources>
             <Style TargetType="TextBlock">
+                <Setter Property="Foreground" Value="{StaticResource FgColorBrush}" />
+                <Setter Property="Background" Value="{StaticResource BgColorBrush}" />
                 <Setter Property="Margin" Value="10,0" />
                 <Setter Property="Width" Value="40" />
             </Style>
 
             <Style TargetType="TextBox">
-                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="Foreground" Value="{StaticResource FgColorBrush}" />
+                <Setter Property="Background" Value="{StaticResource BgColorBrush}" />
                 <Setter Property="Width" Value="60" />
             </Style>
         </StackPanel.Resources>
