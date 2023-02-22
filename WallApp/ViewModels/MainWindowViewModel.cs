@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using NAudio.CoreAudioApi;
 using Prism.Commands;
 using Prism.Mvvm;
 
@@ -14,6 +15,8 @@ namespace WallApp.ViewModels
         private double posX;
         private double posY;
         private bool isTopMost = true;
+        private int beforeVolume = 0;
+        private bool mute;
 
         public string Title
         {
@@ -79,9 +82,30 @@ namespace WallApp.ViewModels
 
         public bool IsTopMost { get => isTopMost; set => SetProperty(ref isTopMost, value); }
 
+        public bool Mute { get => mute; set => SetProperty(ref mute, value); }
+
         public DelegateCommand ToggleTopMostPropertyCommand => new DelegateCommand(() =>
         {
             IsTopMost = !IsTopMost;
         });
+
+        public DelegateCommand ToggleMuteCommand => new DelegateCommand(() =>
+        {
+            SetVolume(Mute ? 0 : beforeVolume);
+        });
+
+        private void SetVolume(int value)
+        {
+            MMDeviceEnumerator devEnum = new();
+            MMDevice device = devEnum.GetDefaultAudioEndpoint(DataFlow.Render, Role.Multimedia);
+
+            var current = device.AudioEndpointVolume.MasterVolumeLevelScalar;
+            if (current != 0)
+            {
+                beforeVolume = (int)(current * 100);
+            }
+
+            device.AudioEndpointVolume.MasterVolumeLevelScalar = value / 100.0f;
+        }
     }
 }
