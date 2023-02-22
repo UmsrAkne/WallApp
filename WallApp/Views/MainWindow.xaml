@@ -14,7 +14,48 @@
     Topmost="True"
     mc:Ignorable="d">
 
-    <Grid>
-        <ContentControl prism:RegionManager.RegionName="ContentRegion" />
-    </Grid>
+    <StackPanel>
+        <StackPanel.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="Margin" Value="10,0" />
+                <Setter Property="Width" Value="40" />
+            </Style>
+
+            <Style TargetType="TextBox">
+                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="Width" Value="60" />
+            </Style>
+        </StackPanel.Resources>
+
+        <Button Margin="5" Content="最前面固定" />
+
+        <StackPanel Margin="4" Orientation="Horizontal">
+
+            <TextBlock Text="Width : " />
+            <TextBox />
+
+            <Border Width="0" Margin="15,0" />
+
+            <TextBlock Text="Height : " />
+            <TextBox />
+        </StackPanel>
+
+        <StackPanel Margin="4" Orientation="Horizontal">
+
+            <TextBlock Text="PosX : " />
+            <TextBox />
+
+            <Border Width="0" Margin="15,0" />
+
+            <TextBlock Text="PosY : " />
+            <TextBox />
+        </StackPanel>
+
+        <Button
+            Width="150"
+            Margin="5"
+            HorizontalAlignment="Left"
+            Content="Mute" />
+
+    </StackPanel>
 </Window>
