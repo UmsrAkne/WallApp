@@ -7,11 +7,11 @@
     xmlns:prism="http://prismlibrary.com/"
     xmlns:viewModels1="clr-namespace:WallApp.ViewModels"
     Title="{Binding Title}"
-    Width="525"
-    Height="350"
+    Width="{Binding Width}"
+    Height="{Binding Height}"
     d:DataContext="{d:DesignInstance viewModels1:MainWindowViewModel}"
     prism:ViewModelLocator.AutoWireViewModel="True"
-    Topmost="True"
+    Topmost="{Binding IsTopMost}"
     mc:Ignorable="d">
 
     <StackPanel>
@@ -32,23 +32,23 @@
         <StackPanel Margin="4" Orientation="Horizontal">
 
             <TextBlock Text="Width : " />
-            <TextBox />
+            <TextBox Text="{Binding Width}" />
 
             <Border Width="0" Margin="15,0" />
 
             <TextBlock Text="Height : " />
-            <TextBox />
+            <TextBox Text="{Binding Height}" />
         </StackPanel>
 
         <StackPanel Margin="4" Orientation="Horizontal">
 
             <TextBlock Text="PosX : " />
-            <TextBox />
+            <TextBox Text="{Binding PosX}" />
 
             <Border Width="0" Margin="15,0" />
 
             <TextBlock Text="PosY : " />
-            <TextBox />
+            <TextBox Text="{Binding PosY}" />
         </StackPanel>
 
         <Button
