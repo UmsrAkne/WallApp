@@ -14,6 +14,10 @@
     Topmost="{Binding IsTopMost}"
     mc:Ignorable="d">
 
+    <Window.InputBindings>
+        <KeyBinding Key="T" Command="{Binding ToggleTopMostPropertyCommand}" />
+    </Window.InputBindings>
+
     <StackPanel>
         <StackPanel.Resources>
             <Style TargetType="TextBlock">

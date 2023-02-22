@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Prism.Commands;
 using Prism.Mvvm;
 
 namespace WallApp.ViewModels
@@ -77,5 +78,10 @@ namespace WallApp.ViewModels
         }
 
         public bool IsTopMost { get => isTopMost; set => SetProperty(ref isTopMost, value); }
+
+        public DelegateCommand ToggleTopMostPropertyCommand => new DelegateCommand(() =>
+        {
+            IsTopMost = !IsTopMost;
+        });
     }
 }
