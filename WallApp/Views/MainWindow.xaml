@@ -34,7 +34,7 @@
         <ToggleButton
             Height="25"
             Margin="5"
-            Content="最前面固定"
+            Content="最前面固定 ( t で切り替え )"
             IsChecked="{Binding IsTopMost}" />
 
         <StackPanel Margin="4" Orientation="Horizontal">
