@@ -48,9 +48,33 @@ namespace WallApp.ViewModels
             }
         }
 
-        public double PosX { get => posX; set => SetProperty(ref posX, value); }
+        public double PosX
+        {
+            get => posX;
+            set
+            {
+                if (Application.Current.MainWindow != null)
+                {
+                    Application.Current.MainWindow.Left = value;
+                }
 
-        public double PosY { get => posY; set => SetProperty(ref posY, value); }
+                SetProperty(ref posX, value);
+            }
+        }
+
+        public double PosY
+        {
+            get => posY;
+            set
+            {
+                if (Application.Current.MainWindow != null)
+                {
+                    Application.Current.MainWindow.Top = value;
+                }
+
+                SetProperty(ref posY, value);
+            }
+        }
 
         public bool IsTopMost { get => isTopMost; set => SetProperty(ref isTopMost, value); }
     }
