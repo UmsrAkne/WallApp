@@ -7,13 +7,62 @@
     xmlns:prism="http://prismlibrary.com/"
     xmlns:viewModels1="clr-namespace:WallApp.ViewModels"
     Title="{Binding Title}"
-    Width="525"
-    Height="350"
+    Width="{Binding Width}"
+    Height="{Binding Height}"
     d:DataContext="{d:DesignInstance viewModels1:MainWindowViewModel}"
     prism:ViewModelLocator.AutoWireViewModel="True"
+    Topmost="{Binding IsTopMost}"
     mc:Ignorable="d">
 
-    <Grid>
-        <ContentControl prism:RegionManager.RegionName="ContentRegion" />
-    </Grid>
+    <Window.InputBindings>
+        <KeyBinding Key="T" Command="{Binding ToggleTopMostPropertyCommand}" />
+    </Window.InputBindings>
+
+    <StackPanel>
+        <StackPanel.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="Margin" Value="10,0" />
+                <Setter Property="Width" Value="40" />
+            </Style>
+
+            <Style TargetType="TextBox">
+                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="Width" Value="60" />
+            </Style>
+        </StackPanel.Resources>
+
+        <ToggleButton
+            Margin="5"
+            Content="最前面固定"
+            IsChecked="{Binding IsTopMost}" />
+
+        <StackPanel Margin="4" Orientation="Horizontal">
+
+            <TextBlock Text="Width : " />
+            <TextBox Text="{Binding Width}" />
+
+            <Border Width="0" Margin="15,0" />
+
+            <TextBlock Text="Height : " />
+            <TextBox Text="{Binding Height}" />
+        </StackPanel>
+
+        <StackPanel Margin="4" Orientation="Horizontal">
+
+            <TextBlock Text="PosX : " />
+            <TextBox Text="{Binding PosX}" />
+
+            <Border Width="0" Margin="15,0" />
+
+            <TextBlock Text="PosY : " />
+            <TextBox Text="{Binding PosY}" />
+        </StackPanel>
+
+        <Button
+            Width="150"
+            Margin="5"
+            HorizontalAlignment="Left"
+            Content="Mute" />
+
+    </StackPanel>
 </Window>
