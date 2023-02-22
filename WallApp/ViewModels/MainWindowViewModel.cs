@@ -1,4 +1,5 @@
-﻿using Prism.Mvvm;
+﻿using System.Windows;
+using Prism.Mvvm;
 
 namespace WallApp.ViewModels
 {
@@ -19,9 +20,33 @@ namespace WallApp.ViewModels
             set { SetProperty(ref title, value); }
         }
 
-        public double Width { get => width; set => SetProperty(ref width, value); }
+        public double Width
+        {
+            get => width;
+            set
+            {
+                if (Application.Current.MainWindow != null)
+                {
+                    Application.Current.MainWindow.Width = value;
+                }
 
-        public double Height { get => height; set => SetProperty(ref height, value); }
+                SetProperty(ref width, value);
+            }
+        }
+
+        public double Height
+        {
+            get => height;
+            set
+            {
+                if (Application.Current.MainWindow != null)
+                {
+                    Application.Current.MainWindow.Height = value;
+                }
+
+                SetProperty(ref height, value);
+            }
+        }
 
         public double PosX { get => posX; set => SetProperty(ref posX, value); }
 
