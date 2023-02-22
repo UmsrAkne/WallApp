@@ -18,6 +18,11 @@ namespace WallApp.ViewModels
         private int beforeVolume;
         private bool mute;
 
+        public MainWindowViewModel()
+        {
+            IsTopMost = true;
+        }
+
         public string Title
         {
             get { return title; }
@@ -80,7 +85,15 @@ namespace WallApp.ViewModels
             }
         }
 
-        public bool IsTopMost { get => isTopMost; set => SetProperty(ref isTopMost, value); }
+        public bool IsTopMost
+        {
+            get => isTopMost;
+            set
+            {
+                SetProperty(ref isTopMost, value);
+                Title = value ? "最前面固定中" : "WallApp";
+            }
+        }
 
         public bool Mute { get => mute; set => SetProperty(ref mute, value); }
 
