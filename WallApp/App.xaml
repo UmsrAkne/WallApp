@@ -1,9 +1,12 @@
-﻿<prism:PrismApplication x:Class="WallApp.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WallApp"
-             xmlns:prism="http://prismlibrary.com/" >
+﻿<prism:PrismApplication
+    x:Class="WallApp.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:WallApp"
+    xmlns:prism="http://prismlibrary.com/">
+
     <Application.Resources>
-         
+        <SolidColorBrush x:Key="BgColorBrush" Color="#333333" />
+        <SolidColorBrush x:Key="FgColorBrush" Color="WhiteSmoke" />
     </Application.Resources>
 </prism:PrismApplication>
