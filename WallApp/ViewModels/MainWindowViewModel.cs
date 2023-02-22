@@ -15,7 +15,7 @@ namespace WallApp.ViewModels
         private double posX;
         private double posY;
         private bool isTopMost = true;
-        private int beforeVolume = 0;
+        private int beforeVolume;
         private bool mute;
 
         public string Title
