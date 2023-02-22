@@ -27,7 +27,10 @@
             </Style>
         </StackPanel.Resources>
 
-        <Button Margin="5" Content="最前面固定" />
+        <ToggleButton
+            Margin="5"
+            Content="最前面固定"
+            IsChecked="{Binding IsTopMost}" />
 
         <StackPanel Margin="4" Orientation="Horizontal">
 
