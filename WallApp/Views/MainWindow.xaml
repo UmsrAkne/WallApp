@@ -11,6 +11,7 @@
     Height="350"
     d:DataContext="{d:DesignInstance viewModels1:MainWindowViewModel}"
     prism:ViewModelLocator.AutoWireViewModel="True"
+    Topmost="True"
     mc:Ignorable="d">
 
     <Grid>
