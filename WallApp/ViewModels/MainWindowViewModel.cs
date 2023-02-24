@@ -107,6 +107,13 @@ namespace WallApp.ViewModels
             SetVolume(Mute ? 0 : beforeVolume);
         });
 
+        public DelegateCommand TopMostAndMuteCommand => new DelegateCommand(() =>
+        {
+            IsTopMost = true;
+            Mute = true;
+            SetVolume(Mute ? 0 : beforeVolume);
+        });
+
         private void SetVolume(int value)
         {
             MMDeviceEnumerator devEnum = new();
