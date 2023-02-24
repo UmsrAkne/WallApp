@@ -79,5 +79,13 @@
             Content="Mute"
             IsChecked="{Binding Mute}" />
 
+        <Button
+            Width="200"
+            Height="25"
+            Margin="5,10"
+            HorizontalAlignment="Left"
+            Command="{Binding DeActiveCommand}"
+            Content="DeActive" />
+
     </StackPanel>
 </Window>
