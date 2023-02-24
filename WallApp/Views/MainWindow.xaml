@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
     xmlns:viewModels1="clr-namespace:WallApp.ViewModels"
@@ -18,6 +19,16 @@
     <Window.InputBindings>
         <KeyBinding Key="T" Command="{Binding ToggleTopMostPropertyCommand}" />
     </Window.InputBindings>
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Activated">
+            <i:InvokeCommandAction Command="{Binding TopMostAndMuteCommand}" />
+        </i:EventTrigger>
+
+        <i:EventTrigger EventName="Closed">
+            <i:InvokeCommandAction Command="{Binding ExitCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
 
     <StackPanel>
         <StackPanel.Resources>
@@ -71,6 +82,14 @@
             Command="{Binding ToggleMuteCommand}"
             Content="Mute"
             IsChecked="{Binding Mute}" />
+
+        <Button
+            Width="200"
+            Height="25"
+            Margin="5,10"
+            HorizontalAlignment="Left"
+            Command="{Binding DeActiveCommand}"
+            Content="DeActive" />
 
     </StackPanel>
 </Window>
