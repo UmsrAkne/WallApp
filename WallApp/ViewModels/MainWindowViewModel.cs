@@ -123,6 +123,14 @@ namespace WallApp.ViewModels
             Application.Current.MainWindow!.WindowState = WindowState.Minimized;
         });
 
+        public DelegateCommand ExitCommand => new DelegateCommand(() =>
+        {
+            if (beforeVolume != 0)
+            {
+                SetVolume(beforeVolume);
+            }
+        });
+
         private void SetVolume(int value)
         {
             MMDeviceEnumerator devEnum = new();

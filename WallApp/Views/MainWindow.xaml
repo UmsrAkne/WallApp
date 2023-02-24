@@ -24,6 +24,10 @@
         <i:EventTrigger EventName="Activated">
             <i:InvokeCommandAction Command="{Binding TopMostAndMuteCommand}" />
         </i:EventTrigger>
+
+        <i:EventTrigger EventName="Closed">
+            <i:InvokeCommandAction Command="{Binding ExitCommand}" />
+        </i:EventTrigger>
     </i:Interaction.Triggers>
 
     <StackPanel>
