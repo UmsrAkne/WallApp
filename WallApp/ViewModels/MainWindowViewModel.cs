@@ -97,24 +97,24 @@ namespace WallApp.ViewModels
 
         public bool Mute { get => mute; set => SetProperty(ref mute, value); }
 
-        public DelegateCommand ToggleTopMostPropertyCommand => new DelegateCommand(() =>
+        public DelegateCommand ToggleTopMostPropertyCommand => new(() =>
         {
             IsTopMost = !IsTopMost;
         });
 
-        public DelegateCommand ToggleMuteCommand => new DelegateCommand(() =>
+        public DelegateCommand ToggleMuteCommand => new(() =>
         {
             SetVolume(Mute ? 0 : beforeVolume);
         });
 
-        public DelegateCommand TopMostAndMuteCommand => new DelegateCommand(() =>
+        public DelegateCommand TopMostAndMuteCommand => new(() =>
         {
             IsTopMost = true;
             Mute = true;
             SetVolume(Mute ? 0 : beforeVolume);
         });
 
-        public DelegateCommand DeActiveCommand => new DelegateCommand(() =>
+        public DelegateCommand DeActiveCommand => new(() =>
         {
             IsTopMost = false;
             Mute = false;
@@ -123,7 +123,7 @@ namespace WallApp.ViewModels
             Application.Current.MainWindow!.WindowState = WindowState.Minimized;
         });
 
-        public DelegateCommand ExitCommand => new DelegateCommand(() =>
+        public DelegateCommand ExitCommand => new(() =>
         {
             if (beforeVolume != 0)
             {
