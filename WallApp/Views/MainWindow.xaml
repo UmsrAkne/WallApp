@@ -99,5 +99,15 @@
 
         </StackPanel>
 
+        <Button
+            Grid.Row="1"
+            Width="200"
+            Height="25"
+            Margin="5,10"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Command="{Binding DeActiveCommand}"
+            Content="DeActive" />
+
     </Grid>
 </Window>
