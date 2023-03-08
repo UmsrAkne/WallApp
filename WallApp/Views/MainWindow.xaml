@@ -8,8 +8,8 @@
     xmlns:prism="http://prismlibrary.com/"
     xmlns:viewModels1="clr-namespace:WallApp.ViewModels"
     Title="{Binding Title}"
-    Width="{Binding Width}"
-    Height="{Binding Height}"
+    Width="800"
+    Height="600"
     d:DataContext="{d:DesignInstance viewModels1:MainWindowViewModel}"
     prism:ViewModelLocator.AutoWireViewModel="True"
     Background="{StaticResource BgColorBrush}"
@@ -57,28 +57,6 @@
                 Margin="5"
                 Content="最前面固定 ( t で切り替え )"
                 IsChecked="{Binding IsTopMost}" />
-
-            <StackPanel Margin="4" Orientation="Horizontal">
-
-                <TextBlock Text="Width : " />
-                <TextBox Text="{Binding Width}" />
-
-                <Border Width="0" Margin="15,0" />
-
-                <TextBlock Text="Height : " />
-                <TextBox Text="{Binding Height}" />
-            </StackPanel>
-
-            <StackPanel Margin="4" Orientation="Horizontal">
-
-                <TextBlock Text="PosX : " />
-                <TextBox Text="{Binding PosX}" />
-
-                <Border Width="0" Margin="15,0" />
-
-                <TextBlock Text="PosY : " />
-                <TextBox Text="{Binding PosY}" />
-            </StackPanel>
 
             <ToggleButton
                 Width="150"
